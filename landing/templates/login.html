@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <h1 class="titulo-index">Seja bem vindo Aluno</h1>
+    <p>Faça seus Login para continuar</p>
+    <p><a class="cadastramento" href="/alunos/cadastro">Clique aqui, para Cadastrar!</a></p>
+    <p>{{sucesso}}</p>
+
+    <form action="/alunos/login" method="post">
+        {% csrf_token %}
+        <label for="email">Email: </label>
+        <input name="email" type="email" required>
+
+        <label for="senha">Senha: </label>
+        <input name="senha" type="password" required>
+    </form>
+    <img class="imagem2" src="{% static 'img/imglog.png' %}" alt="">
+
+{% endblock %}
